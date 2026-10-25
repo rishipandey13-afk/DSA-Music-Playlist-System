@@ -1,0 +1,11 @@
+# Binaries
+playlist_system
+*.o
+*.out
+*.exe
+
+# System / Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
