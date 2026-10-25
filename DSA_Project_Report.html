@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DSA Mini Project Report - Music Playlist Management System</title>
+<style>
+  body {
+    font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+    line-height: 1.5;
+    color: #222;
+    margin: 40px;
+  }
+  h1, h2, h3, h4 {
+    color: #1a365d;
+    font-family: 'Arial', sans-serif;
+  }
+  h1 { font-size: 24pt; text-align: center; margin-bottom: 5px; }
+  h2 { font-size: 16pt; border-bottom: 2px solid #2b6cb0; padding-bottom: 5px; margin-top: 25px; }
+  h3 { font-size: 13pt; color: #2b6cb0; margin-top: 15px; }
+  .title-page {
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+  .title-page h1 {
+    font-size: 26pt;
+    color: #0f2d59;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .title-page h2 {
+    font-size: 16pt;
+    font-weight: normal;
+    color: #4a5568;
+    border-bottom: none;
+    margin-top: 10px;
+  }
+  .title-page .institution {
+    font-size: 18pt;
+    font-weight: bold;
+    color: #1a365d;
+    margin-top: 30px;
+    text-transform: uppercase;
+  }
+  .title-page .dept {
+    font-size: 13pt;
+    color: #4a5568;
+    margin-top: 5px;
+  }
+  .student-box {
+    margin: 50px auto;
+    width: 75%;
+    border: 2px solid #cbd5e0;
+    padding: 20px;
+    background-color: #f7fafc;
+    border-radius: 6px;
+    text-align: left;
+    font-size: 12pt;
+  }
+  .page-break {
+    page-break-after: always;
+    break-after: page;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 10.5pt;
+  }
+  table, th, td {
+    border: 1px solid #a0aec0;
+  }
+  th {
+    background-color: #2b6cb0;
+    color: white;
+    padding: 10px;
+    text-align: left;
+  }
+  td {
+    padding: 8px 10px;
+  }
+  tr:nth-child(even) {
+    background-color: #f7fafc;
+  }
+  pre, code {
+    font-family: 'Consolas', 'Courier New', monospace;
+    background-color: #edf2f7;
+    border-radius: 4px;
+  }
+  pre {
+    padding: 12px;
+    border-left: 4px solid #3182ce;
+    font-size: 9.5pt;
+    overflow-x: auto;
+    line-height: 1.4;
+  }
+  .sig-table {
+    width: 100%;
+    border: none;
+    margin-top: 60px;
+  }
+  .sig-table td {
+    border: none;
+    padding: 20px 0;
+    vertical-align: top;
+  }
+  .badge {
+    display: inline-block;
+    background-color: #ebf8ff;
+    color: #2b6cb0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 9pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- TITLE PAGE -->
+<div class="title-page">
+  <div class="institution">ALARD UNIVERSITY, PUNE</div>
+  <div class="dept">Department of Computer Science & Engineering</div>
+  <div style="margin: 40px 0; font-size: 14pt; font-weight: bold; color: #718096;">
+    ACADEMIC MINI PROJECT REPORT
+  </div>
+  
+  <h1>MUSIC PLAYLIST MANAGEMENT SYSTEM</h1>
+  <h2>A Data Structures & Algorithms (DSA) Implementation</h2>
+  
+  <div class="student-box">
+    <strong>Submitted by:</strong><br>
+    <strong>Student Name:</strong> Rishi Pandey<br>
+    <strong>ERP Number:</strong> 25ET2041025<br>
+    <strong>Class / Year:</strong> 2nd Year B.Tech (Computer Science & Engineering)<br>
+    <strong>Course:</strong> Data Structures & Algorithms (Course Code: CS-201)<br>
+    <strong>Academic Year:</strong> 2026 – 2027
+  </div>
+
+  <div style="margin-top: 40px; font-size: 11pt; color: #4a5568;">
+    Submitted in partial fulfillment of the academic requirements for the degree of<br>
+    <strong>Bachelor of Technology in Computer Science & Engineering</strong>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- CERTIFICATE -->
+<h2>CERTIFICATE OF COMPLETION</h2>
+<p style="text-align: justify; margin-top: 25px; line-height: 1.8; font-size: 12pt;">
+This is to certify that the mini project entitled <strong>"Music Playlist Management System"</strong> is a bonafide record of work successfully carried out by <strong>Rishi Pandey (ERP No: 25ET2041025)</strong>, student of Second Year Computer Science & Engineering, at <strong>Alard University, Pune</strong>, under our supervision and guidance, in partial fulfillment of the requirements for the Data Structures & Algorithms Laboratory.
+</p>
+
+<p style="text-align: justify; line-height: 1.8; font-size: 12pt;">
+The results embodied in this report have not been submitted to any other university or institute for the award of any degree or diploma.
+</p>
+
+<table class="sig-table">
+  <tr>
+    <td style="width: 50%;">
+      ___________________________<br>
+      <strong>Rishi Pandey</strong><br>
+      Student (ERP: 25ET2041025)<br>
+      Date: 25th October 2026
+    </td>
+    <td style="width: 50%; text-align: right;">
+      ___________________________<br>
+      <strong>Internal Faculty Guide</strong><br>
+      Department of CSE<br>
+      Alard University, Pune
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: center; padding-top: 50px;">
+      ___________________________<br>
+      <strong>Head of Department (CSE)</strong><br>
+      Seal of the Institution
+    </td>
+  </tr>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ACKNOWLEDGEMENT -->
+<h2>ACKNOWLEDGEMENT</h2>
+<p style="text-align: justify; line-height: 1.8;">
+I wish to convey my deep sense of gratitude to my faculty mentors and the Department of Computer Science & Engineering at <strong>Alard University, Pune</strong>, for providing me with the academic facilities, computational resources, and support required to develop this Data Structures & Algorithms mini project.
+</p>
+<p style="text-align: justify; line-height: 1.8;">
+I am profoundly grateful to our subject teachers for imparting clear theoretical concepts of pointer-based data structures, linked lists, stacks, and complexity analysis. Their constructive advice and rigorous standards motivated me to produce robust, cleanly engineered software.
+</p>
+<p style="text-align: justify; line-height: 1.8;">
+Finally, I extend my heartfelt thanks to my parents and fellow batchmates for their continuous encouragement and constructive reviews during the testing of this application.
+</p>
+<br>
+<p>
+<strong>Rishi Pandey</strong><br>
+ERP No: 25ET2041025<br>
+2nd Year CSE, Alard University, Pune
+</p>
+
+<div class="page-break"></div>
+
+<!-- ABSTRACT -->
+<h2>1. ABSTRACT</h2>
+<p style="text-align: justify; line-height: 1.7;">
+Audio streaming applications like Spotify, Apple Music, and YouTube Music require dynamic playlist management where tracks can be added, removed, reordered, and traversed in both directions without computational lag. Classical static arrays fail in such environments because insertions and deletions require costly <em>O(N)</em> memory shifts, and dynamic array resizing incurs heavy reallocation overheads.
+</p>
+<p style="text-align: justify; line-height: 1.7;">
+This mini project presents the design and implementation of a <strong>Music Playlist Management System</strong> using modern C++ (C++17). The system is built upon two core classical data structures:
+</p>
+<ol>
+  <li><strong>Doubly Linked List (DLL):</strong> Serves as the primary playlist container, where each track node contains pointers to both the next and previous tracks. This provides constant-time <em>O(1)</em> forward and backward playback navigation, seamless arbitrary insertions, and in-place list reversal without allocating auxiliary arrays.</li>
+  <li><strong>Stack (LIFO):</strong> Employs a custom dynamically allocated linked stack to automatically maintain a chronological history of recently played tracks, mimicking real-world media history features.</li>
+</ol>
+<p style="text-align: justify; line-height: 1.7;">
+The application provides an interactive terminal interface equipped with robust input validation, preloaded demonstration songs, and complete administrative control over track attributes.
+</p>
+
+<h2>2. PROBLEM STATEMENT & OBJECTIVES</h2>
+<h3>2.1 Problem Statement</h3>
+<p style="text-align: justify;">
+In multimedia software engineering, a playlist is continuously modified at runtime. Users expect instantaneous response times when clicking "Next Song" or "Previous Song", inserting a track "Play Next", or undoing a play action. A linear singly linked list allows forward navigation but requires an expensive <em>O(N)</em> re-traversal to reach the previous node. A doubly linked list resolves this fundamental drawback.
+</p>
+
+<h3>2.2 Project Objectives</h3>
+<ul>
+  <li>Implement a fully functional Doubly Linked List node architecture containing unique Track ID, Title, Artist, and Duration.</li>
+  <li>Enable bidirectional traversal (Next Song and Previous Song) with circular boundary wrap-around.</li>
+  <li>Support dynamic insertion at the head, tail, and arbitrary user-specified positions.</li>
+  <li>Support deletion by Track ID with automatic link restoration and memory reclamation.</li>
+  <li>Integrate a Stack data structure to track playback history in Last-In-First-Out (LIFO) order.</li>
+  <li>Implement an in-place pointer reversal algorithm without additional list copies.</li>
+  <li>Provide linear search capabilities by track title or artist keyword.</li>
+</ul>
+
+<div class="page-break"></div>
+
+<h2>3. DATA STRUCTURE COMPARATIVE ANALYSIS</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Operation</th>
+      <th>Static Array</th>
+      <th>Singly Linked List</th>
+      <th>Doubly Linked List (Chosen)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Next Track Playback</strong></td>
+      <td>O(1) via index</td>
+      <td>O(1) via next pointer</td>
+      <td><strong>O(1) via next pointer</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Previous Track Playback</strong></td>
+      <td>O(1) via index</td>
+      <td>O(N) (must traverse from head)</td>
+      <td><strong>O(1) via prev pointer</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Insert at Beginning</strong></td>
+      <td>O(N) (shifting all elements)</td>
+      <td>O(1)</td>
+      <td><strong>O(1) via head pointer</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Insert at End</strong></td>
+      <td>O(1) amortized</td>
+      <td>O(1) with tail pointer</td>
+      <td><strong>O(1) via tail pointer</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Delete Current Node</strong></td>
+      <td>O(N) (shifting all elements)</td>
+      <td>O(N) (finding predecessor)</td>
+      <td><strong>O(1) pointer adjustment</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Memory Overhead</strong></td>
+      <td>Contiguous fixed memory</td>
+      <td>1 pointer per node</td>
+      <td>2 pointers per node</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>4. DETAILED ALGORITHMS</h2>
+
+<h3>4.1 Insertion at End of Playlist (O(1))</h3>
+<pre>
+Algorithm AddSongEnd(title, artist, duration):
+1. Allocate memory for new Song node: newSong.
+2. Initialize newSong.id = nextId++, newSong.title = title, newSong.artist = artist, newSong.duration = duration.
+3. Set newSong.next = nullptr, newSong.prev = nullptr.
+4. If head == nullptr (playlist empty):
+     head = tail = currentSong = newSong
+5. Else:
+     tail.next = newSong
+     newSong.prev = tail
+     tail = newSong
+6. Increment totalCount by 1.
+</pre>
+
+<h3>4.2 In-Place Playlist Reversal (O(N) Time, O(1) Space)</h3>
+<pre>
+Algorithm ReversePlaylist():
+1. If head == nullptr or head.next == nullptr, return.
+2. Set curr = head, temp = nullptr.
+3. While curr != nullptr:
+     temp = curr.prev
+     curr.prev = curr.next
+     curr.next = temp
+     curr = curr.prev  // Moves to the next node in original sequence
+4. If temp != nullptr:
+     tail = head
+     head = temp.prev
+</pre>
+
+<div class="page-break"></div>
+
+<h2>5. TIME & SPACE COMPLEXITY SUMMARY</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Operation</th>
+      <th>Algorithm / Method</th>
+      <th>Time Complexity</th>
+      <th>Auxiliary Space Complexity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Display Playlist</td>
+      <td>Linear traversal</td>
+      <td>O(N)</td>
+      <td>O(1)</td>
+    </tr>
+    <tr>
+      <td>Play Next Song</td>
+      <td>Pointer dereference</td>
+      <td>O(1)</td>
+      <td>O(1)</td>
+    </tr>
+    <tr>
+      <td>Play Previous Song</td>
+      <td>Pointer dereference</td>
+      <td>O(1)</td>
+      <td>O(1)</td>
+    </tr>
+    <tr>
+      <td>Add at Head / Tail</td>
+      <td>Pointer update</td>
+      <td>O(1)</td>
+      <td>O(1)</td>
+    </tr>
+    <tr>
+      <td>Add at Position K</td>
+      <td>Traversal to K + relink</td>
+      <td>O(K) &le; O(N)</td>
+      <td>O(1)</td>
+    </tr>
+    <tr>
+      <td>Delete by Track ID</td>
+      <td>Search + Pointer relink</td>
+      <td>O(N)</td>
+      <td>O(1)</td>
+    </tr>
+    <tr>
+      <td>Search Track</td>
+      <td>Linear substring match</td>
+      <td>O(N)</td>
+      <td>O(1)</td>
+    </tr>
+    <tr>
+      <td>Push to History Stack</td>
+      <td>Linked stack push</td>
+      <td>O(1)</td>
+      <td>O(1)</td>
+    </tr>
+    <tr>
+      <td>In-Place Reversal</td>
+      <td>Pointer swapping loop</td>
+      <td>O(N)</td>
+      <td>O(1)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>6. SAMPLE OUTPUT & DEMONSTRATION</h2>
+<p>Below is the actual terminal output produced by the compiled C++ executable:</p>
+
+<pre>
+===============================================================================
+                         CURRENT MUSIC PLAYLIST                                
+===============================================================================
+ID      Title                     Artist                Duration    Status
+-------------------------------------------------------------------------------
+101     Bohemian Rhapsody         Queen                 5.55        [* PLAYING]
+102     Hotel California          Eagles                6.30           -
+103     Shape of You              Ed Sheeran            3.53           -
+104     Kesariya                  Arijit Singh          4.28           -
+105     Starboy                   The Weeknd            3.50           -
+===============================================================================
+ Total Songs: 5 | Total Duration: 23.16 mins
+
+=======================================================
+                 >>> NOW PLAYING <<<                   
+ Track ID  : #102
+ Title     : Hotel California
+ Artist    : Eagles
+ Duration  : 6.30 mins
+=======================================================
+
+=======================================================
+           RECENTLY PLAYED HISTORY (STACK - LIFO)      
+=======================================================
+ 1. Hotel California - Eagles
+ 2. Bohemian Rhapsody - Queen
+=======================================================
+</pre>
+
+<h2>7. CONCLUSION & FUTURE ENHANCEMENTS</h2>
+<p style="text-align: justify;">
+The <strong>Music Playlist Management System</strong> successfully demonstrates the practical implementation of Doubly Linked Lists and Stacks in C++. It highlights how pointer manipulation solves real-world multimedia software requirements by achieving constant-time forward/backward navigation and dynamic memory management.
+</p>
+<p><strong>Future Enhancements:</strong></p>
+<ul>
+  <li>File I/O integration for persistent storage of playlists across system reboots.</li>
+  <li>Audio decoding integration using SDL2_mixer or miniaudio to play physical MP3 files.</li>
+  <li>Priority Queue / Heap integration to automatically sort songs by play frequency.</li>
+</ul>
+
+<h2>8. REFERENCES</h2>
+<ol>
+  <li>Cormen, T. H., Leiserson, C. E., Rivest, R. L., & Stein, C. (2009). <em>Introduction to Algorithms</em> (3rd ed.). MIT Press.</li>
+  <li>Weiss, M. A. (2014). <em>Data Structures and Algorithm Analysis in C++</em> (4th ed.). Pearson.</li>
+  <li>Stroustrup, B. (2013). <em>The C++ Programming Language</em> (4th ed.). Addison-Wesley.</li>
+</ol>
+
+</body>
+</html>
